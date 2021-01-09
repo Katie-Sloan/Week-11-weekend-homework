@@ -45,4 +45,9 @@ public class FlightTest {
         assertEquals("10am", flight.getDepartureTime());
     }
 
+    @Test
+    public void canReturnAvailableSeatsWhenPlaneEmpty(){
+        assertEquals(416, flight.returnAvailableSeats());
+    }
+
 }

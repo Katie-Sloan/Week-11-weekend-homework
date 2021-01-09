@@ -42,7 +42,7 @@ public class Flight {
         return plane;
     }
 
-
-
-
+    public int returnAvailableSeats() {
+        return plane.getPassengerCapacity() - this.passengerCount();
+    }
 }
