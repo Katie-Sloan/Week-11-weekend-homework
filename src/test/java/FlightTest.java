@@ -7,6 +7,7 @@ public class FlightTest {
 
     Flight flight;
     Plane plane;
+    Passenger passenger;
 
     @Before
     public void setUp() {
@@ -48,6 +49,13 @@ public class FlightTest {
     @Test
     public void canReturnAvailableSeatsWhenPlaneEmpty(){
         assertEquals(416, flight.returnAvailableSeats());
+    }
+
+    @Test
+    public void canReturnAvailableSeatsWhenSomeSeatsTaken(){
+        passenger = new Passenger ("Monica");
+        flight.addPassenger(passenger);
+        assertEquals(415, flight.returnAvailableSeats());
     }
 
 }
