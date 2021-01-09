@@ -8,6 +8,11 @@ public class FlightTest {
     Flight flight;
     Plane plane;
     Passenger passenger;
+    Passenger passenger1;
+    Passenger passenger2;
+    Passenger passenger3;
+    Passenger passenger4;
+    Passenger passenger5;
 
     @Before
     public void setUp() {
@@ -48,19 +53,35 @@ public class FlightTest {
 
     @Test
     public void canReturnAvailableSeatsWhenPlaneEmpty(){
-        assertEquals(416, flight.returnAvailableSeats());
+        assertEquals(5, flight.returnAvailableSeats());
     }
 
     @Test
     public void canReturnAvailableSeatsWhenSomeSeatsTaken(){
         flight.bookPassenger(passenger);
-        assertEquals(415, flight.returnAvailableSeats());
+        assertEquals(4, flight.returnAvailableSeats());
     }
 
     @Test
     public void canBookAPassenger_underCapacity(){
         flight.bookPassenger(passenger);
         assertEquals(1, flight.passengerCount());
+    }
+
+    @Test
+    public void canBookAPassenger_atCapacity(){
+        Passenger passenger1 = new Passenger("Ross");
+        Passenger passenger2 = new Passenger("Chandler");
+        Passenger passenger3 = new Passenger("Joey");
+        Passenger passenger4 = new Passenger("Phoebe");
+        Passenger passenger5 = new Passenger("Rachel");
+        flight.bookPassenger(passenger);
+        flight.bookPassenger(passenger1);
+        flight.bookPassenger(passenger2);
+        flight.bookPassenger(passenger3);
+        flight.bookPassenger(passenger4);
+        flight.bookPassenger(passenger5);
+        assertEquals(5, flight.passengerCount());
     }
 
 }
