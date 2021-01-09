@@ -13,7 +13,7 @@ public class FlightTest {
     public void setUp() {
         plane = new Plane(PlaneType.BOEING747);
         flight = new Flight("FR756", "GLA", "EDI", "10am", plane);
-
+        passenger = new Passenger ("Monica");
     }
 
     @Test
@@ -53,9 +53,14 @@ public class FlightTest {
 
     @Test
     public void canReturnAvailableSeatsWhenSomeSeatsTaken(){
-        passenger = new Passenger ("Monica");
-        flight.addPassenger(passenger);
+        flight.bookPassenger(passenger);
         assertEquals(415, flight.returnAvailableSeats());
+    }
+
+    @Test
+    public void canBookAPassenger_underCapacity(){
+        flight.bookPassenger(passenger);
+        assertEquals(1, flight.passengerCount());
     }
 
 }
