@@ -19,6 +19,11 @@ public class FlightTest {
         plane = new Plane(PlaneType.BOEING747);
         flight = new Flight("FR756", "GLA", "EDI", "10am", plane);
         passenger = new Passenger ("Monica");
+        passenger1 = new Passenger("Ross");
+        passenger2 = new Passenger("Chandler");
+        passenger3 = new Passenger("Joey");
+        passenger4 = new Passenger("Phoebe");
+        passenger5 = new Passenger("Rachel");
     }
 
     @Test
@@ -70,11 +75,16 @@ public class FlightTest {
 
     @Test
     public void canBookAPassenger_atCapacity(){
-        Passenger passenger1 = new Passenger("Ross");
-        Passenger passenger2 = new Passenger("Chandler");
-        Passenger passenger3 = new Passenger("Joey");
-        Passenger passenger4 = new Passenger("Phoebe");
-        Passenger passenger5 = new Passenger("Rachel");
+        flight.bookPassenger(passenger);
+        flight.bookPassenger(passenger1);
+        flight.bookPassenger(passenger2);
+        flight.bookPassenger(passenger3);
+        flight.bookPassenger(passenger4);
+        assertEquals(5, flight.passengerCount());
+    }
+
+    @Test
+    public void cantBookAPassenger_overCapacity(){
         flight.bookPassenger(passenger);
         flight.bookPassenger(passenger1);
         flight.bookPassenger(passenger2);
