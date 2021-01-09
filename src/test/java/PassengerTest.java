@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,5 +13,8 @@ public class PassengerTest {
 
     @Test
     public void hasName() { assertEquals("Monica", passenger.getName()); }
+
+    @Test
+    public void passengerBagCountStartsAt0() { assertEquals(0, passenger.bagCount()); }
 
 }
