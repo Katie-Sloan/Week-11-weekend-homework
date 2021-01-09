@@ -7,15 +7,15 @@ public class Flight {
     private String destination;
     private String departureAirport;
     private String departureTime;
-//    private Plane plane;
+    private Plane plane;
 
-    public Flight(String flightNumber, String destination, String departureAirport, String departureTime) {
+    public Flight(String flightNumber, String destination, String departureAirport, String departureTime, Plane plane) {
         this.passengers = new ArrayList<Passenger>();
         this.flightNumber = flightNumber;
         this.destination = destination;
         this.departureAirport = departureAirport;
         this.departureTime = departureTime;
-//        this.plane = new Plane(null);
+        this.plane = plane;
     }
 
     public int passengerCount() {
@@ -38,9 +38,9 @@ public class Flight {
         return this.departureTime;
     }
 
-//    public Plane getPlane() {
-//        return this.plane;
-//    }
+    public Plane getPlane() {
+        return plane;
+    }
 
 
 
