@@ -6,13 +6,15 @@ public class Flight {
     private String flightNumber;
     private String destination;
     private String departureAirport;
+    private String departureTime;
 //    private Plane plane;
 
-    public Flight(String flightNumber, String destination, String departureAirport) {
+    public Flight(String flightNumber, String destination, String departureAirport, String departureTime) {
         this.passengers = new ArrayList<Passenger>();
         this.flightNumber = flightNumber;
         this.destination = destination;
         this.departureAirport = departureAirport;
+        this.departureTime = departureTime;
 //        this.plane = new Plane(null);
     }
 
@@ -30,6 +32,10 @@ public class Flight {
 
     public String getDepartureAirport() {
         return this.departureAirport;
+    }
+
+    public String getDepartureTime() {
+        return this.departureTime;
     }
 
 //    public Plane getPlane() {

@@ -10,7 +10,7 @@ public class FlightTest {
 
     @Before
     public void setUp() {
-        flight = new Flight("FR756", "GLA", "EDI");
+        flight = new Flight("FR756", "GLA", "EDI", "10am");
 //        plane = new Plane(PlaneType.BOEING747);
     }
 
@@ -37,6 +37,11 @@ public class FlightTest {
     @Test
     public void canGetDepartureAirport(){
         assertEquals("EDI", flight.getDepartureAirport());
+    }
+
+    @Test
+    public void canGetDepartureTime(){
+        assertEquals("10am", flight.getDepartureTime());
     }
 
 }
