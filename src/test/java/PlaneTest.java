@@ -22,4 +22,9 @@ public class PlaneTest {
         assertEquals(416, plane.getPassengerCapacity());
     }
 
+    @Test
+    public void canGetTotalWeight(){
+        assertEquals(100000, plane.getTotalWeight());
+    }
+
 }

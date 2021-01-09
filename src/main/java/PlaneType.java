@@ -13,9 +13,9 @@ public enum PlaneType {
     public int getPassengerCapacity(){
         return this.passengerCapacity;
     }
-//
-//    public int getTotalWeight(){
-//        return this.totalWeight;
-//    }
+
+    public int getTotalWeight(){
+        return this.totalWeight;
+    }
 
 }
