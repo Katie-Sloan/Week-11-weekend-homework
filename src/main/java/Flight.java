@@ -1,4 +1,10 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Flight {
 
@@ -6,10 +12,10 @@ public class Flight {
     private String flightNumber;
     private String destination;
     private String departureAirport;
-    private String departureTime;
+    private LocalDateTime departureTime;
     private Plane plane;
 
-    public Flight(String flightNumber, String destination, String departureAirport, String departureTime, Plane plane) {
+    public Flight(String flightNumber, String destination, String departureAirport, LocalDateTime departureTime, Plane plane) {
         this.passengers = new ArrayList<Passenger>();
         this.flightNumber = flightNumber;
         this.destination = destination;
@@ -35,7 +41,9 @@ public class Flight {
     }
 
     public String getDepartureTime() {
-        return this.departureTime;
+        LocalDate justDate = this.departureTime.toLocalDate();
+        LocalTime justTime = this.departureTime.toLocalTime();
+        return ("Date: " + justDate + " Time: " + justTime);
     }
 
     public Plane getPlane() {

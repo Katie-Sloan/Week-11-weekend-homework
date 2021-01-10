@@ -1,6 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
@@ -17,7 +21,7 @@ public class FlightTest {
     @Before
     public void setUp() {
         plane = new Plane(PlaneType.BOEING747);
-        flight = new Flight("FR756", "GLA", "EDI", "10am", plane);
+        flight = new Flight("FR756", "GLA", "EDI", LocalDateTime.of(2021, 05, 5, 07, 30), plane);
         passenger = new Passenger ("Monica", 2);
         passenger1 = new Passenger("Ross", 1);
         passenger2 = new Passenger("Chandler", 2);
@@ -53,7 +57,7 @@ public class FlightTest {
 
     @Test
     public void canGetDepartureTime(){
-        assertEquals("10am", flight.getDepartureTime());
+        assertEquals("Date: 2021-05-05 Time: 07:30", flight.getDepartureTime());
     }
 
     @Test

@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightManagerTest {
@@ -15,7 +17,7 @@ public class FlightManagerTest {
     public void setUp(){
         plane = new Plane(PlaneType.BOEING747);
         flightManager = new FlightManager();
-        flight1 = new Flight("FR756", "GLA", "EDI", "10am", plane);
+        flight1 = new Flight("FR756", "GLA", "EDI", LocalDateTime.of(2021, 05, 5, 07, 30), plane);
         passenger = new Passenger ("Monica", 2);
         passenger1 = new Passenger("Ross", 1);
     }
