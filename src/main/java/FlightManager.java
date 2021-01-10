@@ -38,5 +38,12 @@ public class FlightManager {
     public void addFlight(Flight flight1) {
         this.flights.add(flight1);
     }
+
+    public int calculateTotalBaggageWeightRemaining(String flightNumber) {
+        Flight foundFlight = findFlight(flightNumber);
+        Plane foundPlane = foundFlight.getPlane();
+        int initialBaggageWeightAvailable = foundPlane.getTotalWeight() / 2;
+        return initialBaggageWeightAvailable - calculateTotalBaggageWeightBooked(flightNumber);
+    }
 }
 

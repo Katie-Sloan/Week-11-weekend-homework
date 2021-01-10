@@ -47,4 +47,13 @@ public class FlightManagerTest {
         flight1.bookPassenger(passenger1);
         assertEquals(30, flightManager.calculateTotalBaggageWeightBooked(flight1.getFlightNumber()));
     }
+
+    @Test
+    public void canCalculateOverallBaggageWeightRemaining(){
+        flightManager.addFlight(flight1);
+        flight1.bookPassenger(passenger);
+        flight1.bookPassenger(passenger1);
+        assertEquals(20, flightManager.calculateTotalBaggageWeightRemaining(flight1.getFlightNumber()));
+    }
+
 }
