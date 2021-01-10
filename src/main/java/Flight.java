@@ -60,6 +60,10 @@ public class Flight {
         return totalBags;
     }
 
+    public int calculateTotalWeight() {
+        return totalBagsCount() * 10;
+    }
+
     public int calculateBaggageWeightPerPassenger() {
         return plane.getTotalWeight() / 2 / plane.getPassengerCapacity();
     }

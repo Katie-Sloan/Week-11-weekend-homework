@@ -13,13 +13,13 @@ public class FlightManager {
     public int calculateBaggageWeightEach(String flightNumber) {
         Flight foundFlight = findFlight(flightNumber);
         return foundFlight.calculateBaggageWeightPerPassenger();
-//        return plane.getTotalWeight() / 2 / plane.getPassengerCapacity();
     }
-//
-//    public int calculateTotalBaggageWeightBooked() {
-//        return flight.totalBagsCount();
-//
-//    }
+
+    public int calculateTotalBaggageWeightBooked(String flightNumber) {
+        Flight foundFlight = findFlight(flightNumber);
+        return foundFlight.calculateTotalWeight();
+    }
+
 
     public Flight findFlight(String flightNumber) {
         Flight foundFlight = null;

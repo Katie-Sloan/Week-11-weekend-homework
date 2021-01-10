@@ -39,11 +39,12 @@ public class FlightManagerTest {
         Flight foundFlight = flightManager.findFlight("FR756");
         assertEquals(10, flightManager.calculateBaggageWeightEach(foundFlight.getFlightNumber()));
     }
-//
-//    @Test
-//    public void canCalculateTotalBaggageWeightBooked(){
-//        flight.bookPassenger(passenger);
-//        flight.bookPassenger(passenger1);
-//        assertEquals(30, flightManager.calculateTotalBaggageWeightBooked());
-//    }
+
+    @Test
+    public void canCalculateTotalBaggageWeightBooked(){
+        flightManager.addFlight(flight1);
+        flight1.bookPassenger(passenger);
+        flight1.bookPassenger(passenger1);
+        assertEquals(30, flightManager.calculateTotalBaggageWeightBooked(flight1.getFlightNumber()));
+    }
 }
