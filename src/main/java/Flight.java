@@ -59,4 +59,8 @@ public class Flight {
         }
         return totalBags;
     }
+
+    public int calculateBaggageWeightPerPassenger() {
+        return plane.getTotalWeight() / 2 / plane.getPassengerCapacity();
+    }
 }
