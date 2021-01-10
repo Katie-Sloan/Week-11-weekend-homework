@@ -9,12 +9,12 @@ public class PassengerTest {
     Passenger passenger;
 
     @Before
-    public void before() { passenger = new Passenger("Monica"); }
+    public void before() { passenger = new Passenger("Monica", 2); }
 
     @Test
     public void hasName() { assertEquals("Monica", passenger.getName()); }
 
     @Test
-    public void passengerBagCountStartsAt0() { assertEquals(0, passenger.bagCount()); }
+    public void hasNumberOfBags() { assertEquals(2, passenger.bagCount()); }
 
 }

@@ -1,13 +1,16 @@
 public class Passenger {
 
     private String name;
-    private int numberOfBags;
+    private int numberOf10KiloBags;
 
-    public Passenger(String name) { this.name = name; }
+    public Passenger(String name, int numberOf10KiloBags) {
+        this.name = name;
+        this.numberOf10KiloBags = numberOf10KiloBags;
+    }
 
     public String getName() { return name; }
 
     public int bagCount() {
-        return this.numberOfBags;
+        return this.numberOf10KiloBags;
     }
 }

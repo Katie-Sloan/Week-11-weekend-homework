@@ -18,12 +18,12 @@ public class FlightTest {
     public void setUp() {
         plane = new Plane(PlaneType.BOEING747);
         flight = new Flight("FR756", "GLA", "EDI", "10am", plane);
-        passenger = new Passenger ("Monica");
-        passenger1 = new Passenger("Ross");
-        passenger2 = new Passenger("Chandler");
-        passenger3 = new Passenger("Joey");
-        passenger4 = new Passenger("Phoebe");
-        passenger5 = new Passenger("Rachel");
+        passenger = new Passenger ("Monica", 2);
+        passenger1 = new Passenger("Ross", 1);
+        passenger2 = new Passenger("Chandler", 2);
+        passenger3 = new Passenger("Joey", 2);
+        passenger4 = new Passenger("Phoebe", 1);
+        passenger5 = new Passenger("Rachel", 3);
     }
 
     @Test
@@ -94,4 +94,10 @@ public class FlightTest {
         assertEquals(5, flight.passengerCount());
     }
 
+    @Test
+    public void calculateTotalNumberOfBagsBooked(){
+        flight.bookPassenger(passenger);
+        flight.bookPassenger(passenger1);
+        assertEquals(3, flight.totalBagsCount());
+    }
 }

@@ -51,4 +51,12 @@ public class Flight {
             this.passengers.add(passenger);
         }
     }
+
+    public int totalBagsCount() {
+        int totalBags = 0;
+        for (Passenger passenger: this.passengers) {
+            totalBags += passenger.bagCount();
+        }
+        return totalBags;
+    }
 }
