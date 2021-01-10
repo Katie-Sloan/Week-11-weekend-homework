@@ -1,9 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import static org.junit.Assert.assertEquals;
 
@@ -36,11 +34,6 @@ public class FlightTest {
     }
 
     @Test
-    public void hasPlane() {
-        assertEquals(plane, flight.getPlane());
-    }
-
-    @Test
     public void canGetFlightNumber() {
         assertEquals("FR756", flight.getFlightNumber());
     }
@@ -58,6 +51,11 @@ public class FlightTest {
     @Test
     public void canGetDepartureTime(){
         assertEquals("Date: 2021-05-05 Time: 07:30", flight.getDepartureTime());
+    }
+
+    @Test
+    public void hasPlane() {
+        assertEquals(plane, flight.getPlane());
     }
 
     @Test
@@ -104,4 +102,17 @@ public class FlightTest {
         flight.bookPassenger(passenger1);
         assertEquals(3, flight.totalBagsCount());
     }
+
+    @Test
+    public void canCalculateTotalWeight(){
+        flight.bookPassenger(passenger);
+        flight.bookPassenger(passenger1);
+        assertEquals(30, flight.calculateTotalWeight());
+    }
+
+    @Test
+    public void canCalculateBaggageWeightPerPassenger(){
+        assertEquals(10, flight.calculateBaggageWeightPerPassenger());
+    }
+
 }

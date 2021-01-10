@@ -2,12 +2,28 @@ import java.util.ArrayList;
 
 public class FlightManager {
 
-    private ArrayList<Plane> planes;
     private ArrayList<Flight> flights;
 
     public FlightManager(){
-        this.planes = new ArrayList<Plane>();
         this.flights = new ArrayList<Flight>();
+    }
+
+    public int flightCount() {
+        return this.flights.size();
+    }
+
+    public void addFlight(Flight flight1) {
+        this.flights.add(flight1);
+    }
+
+    public Flight findFlight(String flightNumber) {
+        Flight foundFlight = null;
+        for (Flight flight : this.flights) {
+            if (flight.getFlightNumber() == flightNumber) {
+                foundFlight = flight;
+            }
+        }
+        return foundFlight;
     }
 
     public int calculateBaggageWeightEach(String flightNumber) {
@@ -20,26 +36,7 @@ public class FlightManager {
         return foundFlight.calculateTotalWeight();
     }
 
-
-    public Flight findFlight(String flightNumber) {
-        Flight foundFlight = null;
-        for (Flight flight : this.flights) {
-            if (flight.getFlightNumber() == flightNumber) {
-                foundFlight = flight;
-            }
-        }
-        return foundFlight;
-    }
-
-    public int flightCount() {
-        return this.flights.size();
-    }
-
-    public void addFlight(Flight flight1) {
-        this.flights.add(flight1);
-    }
-
-    public int calculateTotalBaggageWeightRemaining(String flightNumber) {
+    public int calculateOverallBaggageWeightRemaining(String flightNumber) {
         Flight foundFlight = findFlight(flightNumber);
         Plane foundPlane = foundFlight.getPlane();
         int initialBaggageWeightAvailable = foundPlane.getTotalWeight() / 2;

@@ -23,6 +23,11 @@ public class FlightManagerTest {
     }
 
     @Test
+    public void flightsListStartsAt0() {
+        assertEquals(0, flightManager.flightCount());
+    }
+
+    @Test
     public void canAddAFlight() {
         flightManager.addFlight(flight1);
         assertEquals(1, flightManager.flightCount());
@@ -55,7 +60,7 @@ public class FlightManagerTest {
         flightManager.addFlight(flight1);
         flight1.bookPassenger(passenger);
         flight1.bookPassenger(passenger1);
-        assertEquals(20, flightManager.calculateTotalBaggageWeightRemaining(flight1.getFlightNumber()));
+        assertEquals(20, flightManager.calculateOverallBaggageWeightRemaining(flight1.getFlightNumber()));
     }
 
 }
